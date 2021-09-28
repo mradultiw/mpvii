@@ -1,5 +1,5 @@
-import "./createpost.css";
-import "./profile.css";
+import "./css/createpost.css";
+import "./css/profile.css";
 
 const getDate = () => {
   const obj = new Date();

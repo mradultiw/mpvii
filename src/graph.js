@@ -1,4 +1,4 @@
-import "./graph.css";
+import "./css/graph.css";
 import Profile from "./profile.js";
 
 function Graph() {

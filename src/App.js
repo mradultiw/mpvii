@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import Graph from "./graph.js";
 import Panel from "./panel.js";
 

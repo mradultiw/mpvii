@@ -1,4 +1,4 @@
-import "./panel.css";
+import "./css/panel.css";
 import UserInfo from "./userinfo.js";
 import SavedPost from "./savedpost.js";
 import CreatePost from "./createpost.js";

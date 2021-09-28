@@ -1,5 +1,5 @@
 import Post from "./post.js";
-import "./savedpost.css";
+import "./css/savedpost.css";
 
 function SavedPost(props) {
   let posts = [

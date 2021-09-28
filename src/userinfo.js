@@ -1,5 +1,5 @@
-import "./userinfo.css";
-import "./profile.css";
+import "./css/userinfo.css";
+import "./css/profile.css";
 
 function UserInfo(props) {
   return (
