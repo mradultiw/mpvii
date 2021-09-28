@@ -1,0 +1,43 @@
+html {
+  --scrollbarBG: #bebaf1;
+  --thumbBG: #474749;
+}
+.savedpost::-webkit-scrollbar {
+  width: 9px;
+}
+.savedpost {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.savedpost::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.savedpost::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.savedpost {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem;
+  height: 70%;
+  align-self: stretch;
+  align-content: safe space-between;
+  justify-content: safe space-evenly;
+  /* background-color: yellow; */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  min-height: 40vh;
+  max-height: 40vh;
+  z-index: 10;
+}
+
+.savedpost:empty:before {
+  content: "Select a user to see what they've posted!";
+  margin: auto;
+}
+.savedpost:empty {
+  background: white;
+}

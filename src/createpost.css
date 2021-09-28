@@ -1,0 +1,21 @@
+.createpost {
+  display: flex;
+  margin-bottom: 0.75rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  height: 10%;
+  align-self: stretch;
+  /* background-color: blue; */
+}
+
+.createpost {
+  display: flex;
+  flex: 1;
+  align-self: stretch !important;
+  align-items: space-around;
+}
+
+.createpost input {
+  width: 80%;
+  margin-right: 15px;
+}
