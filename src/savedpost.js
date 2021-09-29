@@ -7,11 +7,11 @@ function SavedPost(props) {
     "Hehehehe",
     "la la lala lal",
     "hello world!",
-    "Hohohohohohohohohohooh",
+    "Hohohoholsjdakljfhkljasgdhkljfhlkajshdfkjhaskldjfhkahnsdkjlsfhnkljashndkfjsajdfkashndkfjlhwckasdbhcfasiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiidbhifhhohohohohohooh",
   ];
   // posts = [];
   const posts_render = posts.map((post, index) => {
-    return <Post key={index} timestamp={"28/9/2021"} body={post} />;
+    return <Post key={index} timestamp={"28/9/2021 | 14:27:27"} body={post} />;
   });
   return <div className="savedpost">{posts_render}</div>;
 }

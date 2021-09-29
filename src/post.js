@@ -4,8 +4,8 @@ function Post(props) {
   return (
     <div className="post">
       <div className="post-header">
-        <text>{props.timestamp}</text>
-        <button className="btn btn-xs btn-danger">Delete</button>
+        <span>{props.timestamp}</span>
+        <button className="btn btn-xs btn-danger hvr-buzz-out">Delete</button>
       </div>
       <div className="post-body">
         <p>{props.body}</p>

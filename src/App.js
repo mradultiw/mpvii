@@ -8,7 +8,7 @@ function App() {
       <h1>Recommending Friends on Personality and Connections</h1>
       <div className="content">
         <Graph />
-        <Panel username="Temporary" personality_type="xyz" />
+        <Panel username="Temporary" personality_type="wxyz" />
       </div>
     </div>
   );
