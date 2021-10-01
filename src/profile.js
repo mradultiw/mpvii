@@ -1,9 +1,31 @@
 import "./css/profile.css";
 
 function Profile(props) {
+  const handleProfileClick = (e) => {
+    if (props.activeUser === props.userid) return;
+    /**Else
+     * Ask server to send details of the new clicked profile.
+     * For this:
+     * (1)  The 'Panel' component should call an API("FetchUserPost")
+     *    with selected profile's userid and server will send its
+     *    posts. For this, the callback bridge between Graph and
+     *    Panel component will be used.
+     */
+    props.bridge(props.userid);
+    /**
+     * (2)  The 'Graph' component will also re-render all profiles
+     *    with new profileType(colors)
+     */
+    props.setactiveUser(props.userid);
+  };
+
   return (
     <div className="profile">
-      <button type="button" className="btn btn-default btn-circle hvr-pop">
+      <button
+        type="button"
+        className={`btn btn-circle hvr-pop ${props.profileType}`}
+        onClick={handleProfileClick}
+      >
         <i
           className="far fa-smile"
           style={{ fontSize: "28px", display: "block" }}

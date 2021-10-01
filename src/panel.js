@@ -4,8 +4,11 @@ import SavedPost from "./savedpost.js";
 import CreatePost from "./createpost.js";
 
 function Panel(props) {
+  if (props.activeUser === null) {
+    return <div className="empty-panel"></div>;
+  }
   return (
-    <div className="panel_container">
+    <div className="panel-container">
       <div className="panel">
         <UserInfo
           username={props.username}
