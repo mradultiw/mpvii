@@ -35,7 +35,7 @@ html {
 }
 
 .savedpost:empty:before {
-  content: "Select a user to see what they've posted!";
+  content: "Nothing to see for now!";
   margin: auto;
 }
 .savedpost:empty {

@@ -28,12 +28,7 @@ function App() {
           friends={friends}
           recommendations={recommendations}
         />
-        <Panel
-          activeUser={activeUser}
-          bridge={bridgePanelToApp}
-          username="Temporary"
-          personality_type="wxyz"
-        />
+        <Panel activeUser={activeUser} bridge={bridgePanelToApp} />
       </div>
     </div>
   );

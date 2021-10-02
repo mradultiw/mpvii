@@ -1,6 +1,6 @@
 import "./css/graph.css";
 import Profile from "./profile.js";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function Graph(props) {
   const [activeUser, setactiveUser] = useState(null);

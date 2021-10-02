@@ -7,12 +7,17 @@ function UserInfo(props) {
       <h3>{props.username}</h3>
       <h6>Personality Type: {props.personality_type}</h6>
       <div className="btn-group" role="group">
-        <button type="button" className="btn btn-lg btn-friend hvr-wobble-skew">
+        <button
+          type="button"
+          className="btn btn-lg btn-friend hvr-wobble-skew"
+          onClick={props.showFriends}
+        >
           Friends
         </button>
         <button
           type="button"
           className="btn btn-lg btn-recommendation hvr-wobble-skew"
+          onClick={props.showRecommendations}
         >
           Recommendations
         </button>
