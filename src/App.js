@@ -5,18 +5,16 @@ import React, { useState } from "react";
 
 function App() {
   const [activeUser, setactiveUser] = useState(null);
-  const [friends, setfriends] = useState(null);
-  const [recommendations, setrecommendations] = useState(null);
+  const [friendAndRecommendations, setfriendAndRecommendations] =
+    useState(null);
 
   const bridgeGraphToApp = (userid) => {
     setactiveUser(userid);
+    console.log(`App>activeUser: ${activeUser}`);
   };
-  const bridgePanelToApp = (userinfo) => {
-    if (userinfo.friends !== null) {
-      setfriends(userinfo.friends);
-    }
-    if (userinfo.recommendations !== null) {
-      setrecommendations(userinfo.recommendations);
+  const bridgePanelToApp = (list) => {
+    if (list !== null) {
+      setfriendAndRecommendations(list);
     }
   };
   return (
@@ -24,9 +22,9 @@ function App() {
       <h1>Recommending Friends on Personality and Connections</h1>
       <div className="content">
         <Graph
+          activeUser={activeUser}
           bridge={bridgeGraphToApp}
-          friends={friends}
-          recommendations={recommendations}
+          friendsAndRecommendations={friendAndRecommendations}
         />
         <Panel activeUser={activeUser} bridge={bridgePanelToApp} />
       </div>

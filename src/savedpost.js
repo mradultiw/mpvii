@@ -14,11 +14,8 @@ function SavedPost(props) {
       {props.posts !== null
         ? props.posts.map((post, index) => {
             return (
-              <Post
-                key={index}
-                timestamp={"28/9/2021 | 14:27:27"}
-                body={post}
-              />
+              // <Post key={index} timestamp={post.timestamp} body={post.body} /> // this is original
+              <Post key={index} body={post} /> // this is temp
             );
           })
         : []}

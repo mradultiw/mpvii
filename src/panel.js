@@ -7,8 +7,7 @@ import axios from "axios";
 import {
   GET_POSTS,
   GET_USERINFO,
-  GET_FRIENDS,
-  GET_RECOMMENDATIONS,
+  GET_FRIENDS_AND_RECOMMENDATIONS,
 } from "./apis.js";
 
 function Panel(props) {
@@ -16,20 +15,26 @@ function Panel(props) {
   const [username, setusername] = useState("");
   const [personality, setpersonality] = useState("");
 
-  const getPosts = () => {
-    axios
-      .get(GET_POSTS)
-      .then((posts) => {
+  console.log(`Panel: ${props.activeUser}`);
+  const getPosts = async () => {
+    await axios
+      .get(GET_POSTS + `?userid=${props.activeUser}`)
+      .then((res) => {
+        // res.data must be array of object: {timestamp, body}
+        let posts = res.data;
+        console.log(posts);
         setposts(posts);
       })
       .catch((err) => {
         alert(`An error occured while fetching posts: ${err}`);
       });
   };
-  const getUserInfo = () => {
-    axios
-      .get(GET_USERINFO)
-      .then((userinfo) => {
+  const getUserInfo = async () => {
+    await axios
+      .get(GET_USERINFO + `?userid=${props.activeUser}`)
+      .then((res) => {
+        // res.data must be object: {username, personality}
+        let userinfo = res.data;
         setusername(userinfo.username);
         setpersonality(userinfo.personality);
       })
@@ -37,13 +42,25 @@ function Panel(props) {
         alert(`An error occured while fetching userinfo: ${err}`);
       });
   };
-  const showFriends = () => {};
-  const showRecommendations = () => {};
+  const showFriendsAndRecommendations = async () => {
+    await axios
+      .get(GET_FRIENDS_AND_RECOMMENDATIONS + `?userid=${props.activeUser}`)
+      .then((res) => {
+        //This res.data must be a list of list as: [[Friends], [Recommendations]]
+        let list = res.data;
+        props.bridge(list);
+      })
+      .catch((err) => {
+        alert(
+          `An error occured while fetching Friends and Recommendations: ${err}`
+        );
+      });
+  };
 
   useEffect(() => {
     if (props.activeUser === null) return;
-    getUserInfo();
-    getPosts();
+    console.log("Executing Panel>useEffect");
+    getUserInfo().then(() => getPosts());
   });
   if (props.activeUser === null) {
     return <div className="empty-panel"></div>;
@@ -54,8 +71,7 @@ function Panel(props) {
         <UserInfo
           username={username}
           personality_type={personality}
-          showFriends={showFriends}
-          showRecommendations={showRecommendations}
+          showFriendsAndRecommendations={showFriendsAndRecommendations}
         />
         <SavedPost posts={posts} />
         <CreatePost />

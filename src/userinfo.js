@@ -6,7 +6,7 @@ function UserInfo(props) {
     <div className="userinfo">
       <h3>{props.username}</h3>
       <h6>Personality Type: {props.personality_type}</h6>
-      <div className="btn-group" role="group">
+      {/* <div className="btn-group" role="group">
         <button
           type="button"
           className="btn btn-lg btn-friend hvr-wobble-skew"
@@ -21,7 +21,22 @@ function UserInfo(props) {
         >
           Recommendations
         </button>
-      </div>
+      </div> */}
+      <button
+        type="button"
+        className="btn btn-lg btn-friend hvr-wobble-skew"
+        onClick={props.showFriendsAndRecommendations}
+      >
+        <div className="btn-lg btn-friend" style={{ display: "inline-block" }}>
+          Friends
+        </div>
+        <div
+          className="btn-lg btn-recommendation"
+          style={{ display: "inline-block" }}
+        >
+          Recommendations
+        </div>
+      </button>
     </div>
   );
 }

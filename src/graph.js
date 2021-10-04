@@ -1,25 +1,33 @@
 import "./css/graph.css";
 import Profile from "./profile.js";
-import React, { useState } from "react";
+import React from "react";
 
 function Graph(props) {
-  const [activeUser, setactiveUser] = useState(null);
-
   const users = [];
   for (let i = 1; i <= 104; i++) users.push(i);
-
+  console.log(`Graph: ${props.activeUser}`);
   return (
     <div className="graph_container">
       <div className="graph">
         {users.map((id, index) => {
           let profileType = "btn-default";
-          if (activeUser === id) profileType = "btn-active";
+          if (id === props.activeUser) profileType = "btn-active";
+          if (props.friendsAndRecommendations !== null) {
+            if (props.friendsAndRecommendations[0].includes(id)) {
+              // "id" is a friend
+              profileType = "btn-friend";
+            }
+            if (props.friendsAndRecommendations[1].includes(id)) {
+              // "id" is a recommendation
+              profileType = "btn-recommendation";
+            }
+          }
           return (
             <Profile
               key={index}
               userid={id}
               profileType={profileType}
-              setactiveUser={setactiveUser}
+              activeUser={props.activeUser}
               bridge={props.bridge}
             />
           );
