@@ -10,13 +10,15 @@ function App() {
 
   const bridgeGraphToApp = (userid) => {
     setactiveUser(userid);
-    console.log(`App>activeUser: ${activeUser}`);
+    setfriendAndRecommendations(null);
+    console.log(`App.js > setting active user to: ${userid}`);
   };
   const bridgePanelToApp = (list) => {
     if (list !== null) {
       setfriendAndRecommendations(list);
     }
   };
+  console.log(`App.js > rendering App`);
   return (
     <div className="App">
       <h1>Recommending Friends on Personality and Connections</h1>

@@ -2,9 +2,7 @@ import "./css/profile.css";
 
 function Profile(props) {
   const handleProfileClick = (e) => {
-    console.log(`props.activeUser: ${props.activeUser}`);
     if (props.activeUser === props.userid) return;
-    console.log(`props.activeUser: ${props.activeUser}`);
 
     /**Else
      * Ask server to send details of the new clicked profile.

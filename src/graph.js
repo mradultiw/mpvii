@@ -5,7 +5,10 @@ import React from "react";
 function Graph(props) {
   const users = [];
   for (let i = 1; i <= 104; i++) users.push(i);
-  console.log(`Graph: ${props.activeUser}`);
+  console.log(`Graph.js > ${props.activeUser}`);
+
+  console.log(`Graph.js > rendering graph`);
+
   return (
     <div className="graph_container">
       <div className="graph">
