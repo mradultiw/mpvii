@@ -2,9 +2,28 @@ import "./css/panel.css";
 import UserInfo from "./userinfo.js";
 import SavedPost from "./savedpost.js";
 import CreatePost from "./createpost.js";
+import InterestGroup from "./interestgroup.js";
 import axios from "axios";
 import { GET_FRIENDS_AND_RECOMMENDATIONS } from "./apis.js";
 import { useState } from "react/cjs/react.development";
+
+function Lable(props) {
+  return (
+    <div>
+      <span
+        style={{
+          fontWeight: "bold",
+          display: "block",
+          fontSize: "14px",
+          margin: "0",
+          padding: "0",
+        }}
+      >
+        {props.lablename}
+      </span>
+    </div>
+  );
+}
 
 function Panel(props) {
   const [newpost, setnewpost] = useState(null);
@@ -38,6 +57,9 @@ function Panel(props) {
           activeUser={props.activeUser}
           showFriendsAndRecommendations={showFriendsAndRecommendations}
         />
+        <Lable lablename="Interest Groups" />
+        <InterestGroup activeUser={props.activeUser} />
+        <Lable lablename="Posts" />
         <SavedPost activeUser={props.activeUser} newpost={newpost} />
         <CreatePost activeUser={props.activeUser} updateNewPost={setnewpost} />
       </div>

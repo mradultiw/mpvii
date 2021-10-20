@@ -5,6 +5,7 @@
   margin-right: 0.75rem;
   height: 10%;
   align-self: stretch;
+  border-radius: 10px;
   /* background-color: blue; */
 }
 
@@ -13,9 +14,11 @@
   flex: 1;
   align-self: stretch !important;
   align-items: space-around;
+  border-radius: 10px;
 }
 
 .createpost input {
   width: 80%;
   margin-right: 15px;
+  border-radius: 10px;
 }

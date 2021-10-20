@@ -2,10 +2,11 @@
   display: inline-block;
   background-color: white;
   margin: 5px;
+  border-radius: 10px;
 }
 
 .post-header {
-  margin: 5px;
+  margin: 4px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -21,9 +22,12 @@
   border-radius: 0.2rem;
 }
 
+.post-body,
 .post-body p {
-  display: inline;
+  display: inline-block;
   overflow-wrap: break-word;
   justify-content: center;
   padding: 5px;
+  font-size: 16px;
+  line-height: 18px;
 }

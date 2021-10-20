@@ -25,20 +25,36 @@ function UserInfo(props) {
 
   return (
     <div className="userinfo">
-      <h3>{userinfo.username}</h3>
-      <h6>Personality Type: {userinfo.personality}</h6>
-      <h6>Age: {18}</h6> {/* userinfo.age */}
+      <span style={{ fontWeight: "bold", display: "block" }}>
+        {userinfo.username}
+      </span>
+      <span style={{ fontSize: "14px", fontWeight: "bold", display: "block" }}>
+        Personality Type: {userinfo.personality}
+      </span>
+      <span style={{ fontSize: "14px", fontWeight: "bold", display: "block" }}>
+        Age: {18}
+        {/* userinfo.age */}
+      </span>
       <button
         type="button"
-        className="btn btn-lg btn-friend hvr-wobble-skew"
+        className="btn btn-md btn-friend hvr-wobble-skew"
         onClick={props.showFriendsAndRecommendations}
       >
-        <div className="btn-lg btn-friend" style={{ display: "inline-block" }}>
+        <div
+          className="btn-md btn-friend"
+          style={{ display: "inline-block", margin: "auto 10px" }}
+        >
           Friends
         </div>
+
         <div
-          className="btn-lg btn-recommendation"
-          style={{ display: "inline-block" }}
+          className="btn-md btn-recommendation"
+          style={{
+            display: "inline-block",
+            margin: "auto 10px",
+            padding: "5px",
+            borderRadius: "5px",
+          }}
         >
           Recommendations
         </div>

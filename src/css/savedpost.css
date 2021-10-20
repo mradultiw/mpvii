@@ -21,17 +21,18 @@ html {
 .savedpost {
   display: flex;
   flex-direction: column;
-  margin: 0.75rem;
-  height: 70%;
+  margin: 1px 0.75rem;
+  height: 50%;
   align-self: stretch;
   align-content: safe space-between;
   justify-content: safe space-evenly;
   /* background-color: yellow; */
   overflow-y: auto;
   scroll-behavior: smooth;
-  min-height: 40vh;
-  max-height: 40vh;
+  min-height: 25vh;
+  max-height: 25vh;
   z-index: 10;
+  border-radius: 10px;
 }
 
 .savedpost:empty:before {
@@ -40,4 +41,5 @@ html {
 }
 .savedpost:empty {
   background: white;
+  border-radius: 10px;
 }
