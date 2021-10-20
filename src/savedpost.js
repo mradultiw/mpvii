@@ -2,7 +2,7 @@ import Post from "./post.js";
 import "./css/savedpost.css";
 import { useState, useEffect } from "react/cjs/react.development";
 import axios from "axios";
-import { GET_POSTS } from "./apis.js";
+import { GET_POSTS, DELETE_POST } from "./apis.js";
 
 function SavedPost(props) {
   const [posts, setposts] = useState([]);
@@ -24,6 +24,22 @@ function SavedPost(props) {
     setposts([...posts, newpost]);
   };
 
+  const deletepost = (postid) => {
+    axios
+      .get(DELETE_POST, {
+        params: {
+          userid: props.activeUser,
+          postid: postid,
+        },
+      })
+      .then(() => {
+        setposts(posts.filter((post) => post.postid !== postid));
+      })
+      .catch((err) => {
+        alert(`An error occured while deleting post: ${err}`);
+      });
+  };
+
   useEffect(() => {
     console.log(`SavedPosts.js > getting posts...`);
     getPosts();
@@ -40,7 +56,15 @@ function SavedPost(props) {
   return (
     <div className="savedpost">
       {posts.map((post, index) => {
-        return <Post key={index} timestamp={post.timestamp} body={post.body} />;
+        return (
+          <Post
+            key={index}
+            timestamp={post.timestamp}
+            body={post.body}
+            postid={post.postid}
+            deletepost={deletepost}
+          />
+        );
       })}
     </div>
   );

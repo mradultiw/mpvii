@@ -22,6 +22,7 @@ function CreatePost(props) {
       userid: props.activeUser,
       timestamp: getDateTime(),
       body: post,
+      postid: Date.now(),
     };
     await axios
       .post(ADD_NEW_POST, newpost)
