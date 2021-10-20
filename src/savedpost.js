@@ -5,17 +5,8 @@ import axios from "axios";
 import { GET_POSTS } from "./apis.js";
 
 function SavedPost(props) {
-  // let posts = [
-  //   "hi there",
-  //   "Hehehehe",
-  //   "la la lala lal",
-  //   "hello world!",
-  //   "Hohohoholsjdakljfhkljasgdhkljfhlkajshdfkjhaskldjfhkahnsdkjlsfhnkljashndkfjsajdfkashndkfjlhwckasdbhcfasiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiidbhifhhohohohohohooh",
-  // ];
-
-  const [posts, setposts] = useState(null);
+  const [posts, setposts] = useState([]);
   const getPosts = async () => {
-    // if (props.activeUser === null) return [];
     await axios
       .get(GET_POSTS + `?userid=${props.activeUser}`)
       .then((res) => {
@@ -29,21 +20,28 @@ function SavedPost(props) {
       });
   };
 
+  const addNewPost = (newpost) => {
+    setposts([...posts, newpost]);
+  };
+
   useEffect(() => {
-    console.log(`SavedPosts.js > Running useEffect...`);
+    console.log(`SavedPosts.js > getting posts...`);
     getPosts();
   }, [props.activeUser]);
 
+  console.log(`Savedpost.js > newpost: ${props.newpost}`);
+  useEffect(() => {
+    if (props.newpost !== null) {
+      console.log(`SavedPosts.js > adding newpost...`);
+      addNewPost(props.newpost);
+    }
+  }, [props.newpost]);
+
   return (
     <div className="savedpost">
-      {posts !== null
-        ? posts.map((post, index) => {
-            return (
-              // <Post key={index} timestamp={post.timestamp} body={post.body} /> // this is original
-              <Post key={index} body={post} /> // this is temp
-            );
-          })
-        : []}
+      {posts.map((post, index) => {
+        return <Post key={index} timestamp={post.timestamp} body={post.body} />;
+      })}
     </div>
   );
 }

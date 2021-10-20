@@ -7,12 +7,10 @@ import { GET_USERINFO } from "./apis.js";
 function UserInfo(props) {
   const [userinfo, setuserinfo] = useState({});
   const getUserInfo = async () => {
-    // if (props.activeUser === null) return null;
     await axios
       .get(GET_USERINFO + `?userid=${props.activeUser}`)
       .then((res) => {
         // res.data must be object: {username, personality}
-        // console.log(`UserInfo.js > userinfo: ${res.data}`);
         setuserinfo(res.data);
       })
       .catch((err) => {
@@ -21,7 +19,7 @@ function UserInfo(props) {
   };
 
   useEffect(() => {
-    console.log(`UserInfo > Running useEffect...`);
+    console.log(`UserInfo > getting userinfo...`);
     getUserInfo();
   }, [props.activeUser]);
 
@@ -30,22 +28,6 @@ function UserInfo(props) {
       <h3>{userinfo.username}</h3>
       <h6>Personality Type: {userinfo.personality}</h6>
       <h6>Age: {18}</h6> {/* userinfo.age */}
-      {/* <div className="btn-group" role="group">
-        <button
-          type="button"
-          className="btn btn-lg btn-friend hvr-wobble-skew"
-          onClick={props.showFriends}
-        >
-          Friends
-        </button>
-        <button
-          type="button"
-          className="btn btn-lg btn-recommendation hvr-wobble-skew"
-          onClick={props.showRecommendations}
-        >
-          Recommendations
-        </button>
-      </div> */}
       <button
         type="button"
         className="btn btn-lg btn-friend hvr-wobble-skew"
