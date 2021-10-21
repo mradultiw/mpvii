@@ -42,8 +42,24 @@
   border-radius: 20px;
 }
 
+.recommendation-score {
+  display: none;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 8px;
+  margin: 0;
+  border-radius: 20px;
+  background-color: rgb(169, 112, 243);
+}
+
 .profile:hover .friendstatus {
-  display: inline-block;
-  position: absolute;
+  display: block;
+  position: relative;
+  z-index: 1001;
+}
+
+.profile:hover .recommendation-score {
+  display: block;
+  position: relative;
   z-index: 1000;
 }

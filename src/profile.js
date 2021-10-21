@@ -38,21 +38,31 @@ function Profile(props) {
           {props.userid}
         </span>
       </button>
-      <button
-        type="button"
-        className={`friendstatus btn btn-sm 	hvr-pulse`}
-        style={{
-          display:
-            props.activeUser === props.userid || props.activeUser === null
-              ? "none"
-              : "",
-          backgroundColor:
-            props.profileType === "btn-friend" ? "#FF0000" : "#3DB2FF",
-        }}
-        onClick={addOrRemoveFriend}
-      >
-        {props.profileType === "btn-friend" ? "-" : "+"}
-      </button>
+      <div style={{ display: "inline-block", position: "absolute" }}>
+        <button
+          type="button"
+          className={`friendstatus btn btn-sm 	hvr-pulse`}
+          style={{
+            display:
+              props.activeUser === props.userid || props.activeUser === null
+                ? "none"
+                : "",
+            backgroundColor:
+              props.profileType === "btn-friend" ? "#FF0000" : "#3DB2FF",
+          }}
+          onClick={addOrRemoveFriend}
+        >
+          {props.profileType === "btn-friend" ? "-" : "+"}
+        </button>
+        <span
+          className={`recommendation-score btn btn-sm`}
+          style={{
+            display: props.profileType === "btn-recommendation" ? "" : "none",
+          }}
+        >
+          {props.recommendationScore}
+        </span>
+      </div>
     </div>
   );
 }

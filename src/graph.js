@@ -32,6 +32,10 @@ function Graph(props) {
               profileType={profileType}
               activeUser={props.activeUser}
               bridge={props.bridge}
+              recommendationScore={
+                Math.floor(Math.random() * (100 - 50 + 1)) + 50
+                // this will be from database; todo: add from database
+              }
             />
           );
         })}
