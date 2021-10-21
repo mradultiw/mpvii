@@ -7,8 +7,6 @@ function Graph(props) {
   for (let i = 1; i <= 104; i++) users.push(i);
   console.log(`Graph.js > ${props.activeUser}`);
 
-  console.log(`Graph.js > rendering graph`);
-
   return (
     <div className="graph_container">
       <div className="graph">
@@ -22,8 +20,19 @@ function Graph(props) {
             }
             if (props.friendsAndRecommendations[1].includes(id)) {
               // "id" is a recommendation
+              /* this "if" block is for frontend testing only.
+               for real scenario, use below commented because
+               in real case, friendsAndRecommendations[1] is object
+               with key as userid(recommended users) and value will be
+               the recommendation score
+               */
               profileType = "btn-recommendation";
             }
+            /*
+            if (id in props.friendsAndRecommendations[1]) {
+              profileType = "btn-recommendation";
+            }
+            */
           }
           return (
             <Profile
@@ -32,9 +41,17 @@ function Graph(props) {
               profileType={profileType}
               activeUser={props.activeUser}
               bridge={props.bridge}
+              refreshGraph={props.refreshGraph}
               recommendationScore={
                 Math.floor(Math.random() * (100 - 50 + 1)) + 50
-                // this will be from database; todo: add from database
+                // this will be from database and for frontend testing only
+                /*
+                props.friendsAndRecommendations[1].id
+
+                // this is for real case scenarios where 
+                // props.friendAndRecommendation[1] is object of 
+                // {userid_recommendation: recommendation_score}
+                */
               }
             />
           );

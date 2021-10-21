@@ -1,10 +1,8 @@
 import "./css/profile.css";
-import { useState, useEffect } from "react/cjs/react.development";
 import axios from "axios";
 import { ADD_FRIEND, REMOVE_FRIEND } from "./apis.js";
 
 function Profile(props) {
-  const [friendstatus, setfriendstatus] = useState(null);
   const handleProfileClick = (e) => {
     if (props.activeUser === props.userid) return;
     props.bridge(props.userid);
@@ -19,8 +17,11 @@ function Profile(props) {
           activeUser: props.activeUser,
         },
       })
-      .then(() => {})
-      .catch((e) => console.log(`${e}`));
+      .then((res) => {
+        console.log(`profile.js > operation done successfully.`);
+        props.refreshGraph();
+      })
+      .catch((e) => console.log(`profile.js > ${e}`));
   };
 
   return (

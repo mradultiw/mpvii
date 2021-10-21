@@ -1,7 +1,7 @@
 import "./css/createpost.css";
 import "./css/profile.css";
 import axios from "axios";
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState } from "react/cjs/react.development";
 import { ADD_NEW_POST } from "./apis.js";
 
 const getDateTime = () => {
@@ -29,6 +29,7 @@ function CreatePost(props) {
       .then(() => {
         console.log("Data posted successfully to server!");
         props.updateNewPost(post);
+        props.refreshGraph();
       })
       .catch((e) => {
         console.log(`error while posting data to server: ${e}`);
