@@ -15,24 +15,25 @@ const getDateTime = () => {
 };
 
 function CreatePost(props) {
-  const [newpost, setnewpost] = useState(null);
+  const [newpost, setnewpost] = useState("");
 
-  const addNewPost = async (post) => {
-    let newpost = {
+  const addNewPost = async (newpost) => {
+    let post = {
       userid: props.activeUser,
       timestamp: getDateTime(),
-      body: post,
+      body: newpost.trim(),
       postid: Date.now(),
     };
     await axios
-      .post(ADD_NEW_POST, newpost)
+      .post(ADD_NEW_POST, post)
       .then(() => {
         console.log("Data posted successfully to server!");
-        props.updateNewPost(newpost);
+        props.updateNewPost(post);
       })
       .catch((e) => {
         console.log(`error while posting data to server: ${e}`);
       });
+    setnewpost("");
   };
 
   return (
@@ -41,8 +42,10 @@ function CreatePost(props) {
         className="input-post"
         placeholder="What's on your mind?"
         onChange={(e) => {
-          setnewpost(e.target.value.trim());
+          setnewpost(e.target.value);
         }}
+        value={newpost}
+        type="text"
       ></input>
       <button
         className="btn-circle hvr-forward"

@@ -1,3 +1,19 @@
+.interestgroup::-webkit-scrollbar {
+  width: 9px;
+}
+.interestgroup {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.interestgroup::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.interestgroup::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
 .interestgroup {
   display: flex;
   align-content: space-between;

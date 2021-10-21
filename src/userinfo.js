@@ -32,8 +32,7 @@ function UserInfo(props) {
         Personality Type: {userinfo.personality}
       </span>
       <span style={{ fontSize: "14px", fontWeight: "bold", display: "block" }}>
-        Age: {18}
-        {/* userinfo.age */}
+        Age: {userinfo.age}
       </span>
       <button
         type="button"

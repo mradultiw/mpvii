@@ -1,21 +1,26 @@
 import "./css/profile.css";
+import { useState, useEffect } from "react/cjs/react.development";
+import axios from "axios";
+import { ADD_FRIEND, REMOVE_FRIEND } from "./apis.js";
 
 function Profile(props) {
+  const [friendstatus, setfriendstatus] = useState(null);
   const handleProfileClick = (e) => {
     if (props.activeUser === props.userid) return;
-
-    /**Else
-     * Ask server to send details of the new clicked profile.
-     * For this:
-     * (1)  The 'Panel' component should call an API("FetchUserPost")
-     *    with selected profile's userid and server will send its
-     *    posts. For this, the callback bridge between Graph and
-     *    Panel component will be used.
-     *
-     * (2)  The 'Graph' component will also re-render all profiles
-     *    with new profileType(colors)
-     */
     props.bridge(props.userid);
+  };
+  const addOrRemoveFriend = (e) => {
+    let operation =
+      props.profileType === "btn-friend" ? REMOVE_FRIEND : ADD_FRIEND;
+    axios
+      .get(operation, {
+        params: {
+          userid: props.userid,
+          activeUser: props.activeUser,
+        },
+      })
+      .then(() => {})
+      .catch((e) => console.log(`${e}`));
   };
 
   return (
@@ -32,6 +37,21 @@ function Profile(props) {
         <span style={{ fontSize: "10px", display: "block" }}>
           {props.userid}
         </span>
+      </button>
+      <button
+        type="button"
+        className={`friendstatus btn btn-sm 	hvr-pulse`}
+        style={{
+          display:
+            props.activeUser === props.userid || props.activeUser === null
+              ? "none"
+              : "",
+          backgroundColor:
+            props.profileType === "btn-friend" ? "#FF0000" : "#3DB2FF",
+        }}
+        onClick={addOrRemoveFriend}
+      >
+        {props.profileType === "btn-friend" ? "-" : "+"}
       </button>
     </div>
   );
