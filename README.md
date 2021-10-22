@@ -12,3 +12,4 @@ Full project link(with Django backend) (work of all team members): < *Link will 
 Below is the working Front-end code. It shows a network of people and their profiles along with current friends(green) and recommendations(yellow). On clicking +/- (add/remove friends) new users will be added/removed from friend list, and Users can also post new content. In backend, our team is using Django and ML model to predict personality of user and recommendation scores(shown in tooltip on yellow nodes) of the new suggested connections.
 
 ![frontend-preview](https://github.com/mradultiw/mpvii/blob/master/frontend-preview.mp4)
+(file larger than 1 MB, please download this short video locally)
