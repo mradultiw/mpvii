@@ -158,7 +158,11 @@ app.get("/posts", async (req, res) => {
 });
 app.get("/userinfo", async (req, res) => {
   const user = await getUsers(Number(req.query.userid)).catch(`ERROR OCCURED`);
-  let userinfo = { username: user.username, personality: user.personality };
+  let userinfo = {
+    username: user.username,
+    personality: user.personality,
+    age: user.age,
+  };
   res.send(userinfo); // object
 });
 app.get("/username", async (req, res) => {
