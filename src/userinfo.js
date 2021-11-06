@@ -21,7 +21,7 @@ function UserInfo(props) {
   useEffect(() => {
     console.log(`UserInfo > getting userinfo...`);
     getUserInfo();
-  }, [props.activeUser]);
+  }, [props.activeUser, props.friendAndRecommendations]);
 
   return (
     <div className="userinfo">

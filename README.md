@@ -13,3 +13,11 @@ Below is the working Front-end code. It shows a network of people and their prof
 
 ![frontend-preview](https://github.com/mradultiw/mpvii/blob/master/frontend-preview.mp4)
 (file larger than 1 MB, please download this short video locally)
+
+#### Sample Screenshots
+
+![Preview-1](https://github.com/mradultiw/mpvii/blob/master/img1.PNG)
+
+![Preview-2](https://github.com/mradultiw/mpvii/blob/master/img2.PNG)
+
+![Preview-3](https://github.com/mradultiw/mpvii/blob/master/img3.PNG)

@@ -62,6 +62,7 @@ function App() {
           activeUser={activeUser}
           bridge={bridgePanelToApp}
           refreshGraph={refreshGraph}
+          friendsAndRecommendations={friendAndRecommendations}
         />
       </div>
     </div>
